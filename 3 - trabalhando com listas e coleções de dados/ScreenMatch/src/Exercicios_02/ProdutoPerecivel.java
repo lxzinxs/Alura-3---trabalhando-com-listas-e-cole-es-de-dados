@@ -1,4 +1,4 @@
-package Exercicio_02;
+package Exercicios_02;
 
 public class ProdutoPerecivel extends Produto{
     int dataValidade;
