@@ -1,14 +1,28 @@
 package Desafio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cartao {
     private double limite;
     private double saldo;
+
     private List<Compra> compras;
 
-    public void setLimite(double limite) {
+    public Cartao(double limite) {
         this.limite = limite;
+        this.saldo = limite;
+        this.compras = new ArrayList<>();
+    }
+
+    public boolean validarCompra(Compra compra) {
+        if(this.saldo > compra.getValor()) {
+            this.saldo -= compra.getValor();
+            this.compras.add(compra);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public double getLimite() {
@@ -19,7 +33,7 @@ public class Cartao {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public List<Compra> getCompras() {
+        return compras;
     }
 }
